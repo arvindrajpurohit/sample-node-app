@@ -6,7 +6,7 @@ phases:
       - $(aws ecr get-login --no-include-email)
   build:
     commands:
-      
+      - IMAGE_REPO_NAME=demo-app
       - docker build -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$CODEBUILD_RESOLVED_SOURCE_VERSION -f Dockerfile .
   post_build:
     commands:
