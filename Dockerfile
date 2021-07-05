@@ -1,6 +1,5 @@
 # start from base
-FROM node:8-alpine
-
+FROM public.ecr.aws/j4y4c6o5/node8:0.1.102
 # make the directory on the Alpine Linux machine
 RUN mkdir -p /usr/src/app
 
