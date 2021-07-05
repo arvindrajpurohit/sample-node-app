@@ -7,10 +7,16 @@ phases:
   build:
     commands:
       - IMAGE_REPO_NAME=demo-app
+      - AWS_ACCOUNT_ID=136576962476
+      - AWS_DEFAULT_REGION=us-east-1
+      
       - docker build -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$CODEBUILD_RESOLVED_SOURCE_VERSION -f Dockerfile .
   post_build:
     commands:
       # push
+      - IMAGE_REPO_NAME=demo-app
+      - AWS_ACCOUNT_ID=136576962476
+      - AWS_DEFAULT_REGION=us-east-1
       
       - docker tag $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/demo-app:$CODEBUILD_RESOLVED_SOURCE_VERSION $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/demo-app:latest
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/demo-app:$CODEBUILD_RESOLVED_SOURCE_VERSION
