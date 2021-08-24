@@ -5,10 +5,11 @@ workflows:
   use-my-orb:
     jobs:
       - mailer-orb/mail:
+          context: email 
           body: |-
             Sample Mail
             Regards,
             Circle CI
-          from: admin@ghosh.pro
+          from: rajpurohitarvindsingh@gmail.com
           subject: Example mail from mailer-orb
-          to: sudipto@ghosh.pro
+          to: rajpurohitarvindsingh@gmail.com
